@@ -8,8 +8,6 @@ class ChangeViewBox:
 	svgPosVar = ['points', 'd']
 	# these are neutral measures (because they affect both x and y axis), so I chose to calculate their average.
 	svgPosNeutral = ['stroke-width', 'r']
-	# the ',' is there just because we need to do the same with it...
-	svgDProp = ["M", "m", "l", "H", "h", "v", "c", "s", "q", "t", "a", "z", ',']
 	# 0 = x and 1 = y
 	pos = 0
 	def __init__(self, xml: str, svg: bool) -> None:
