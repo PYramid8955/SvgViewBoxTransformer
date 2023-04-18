@@ -15,7 +15,7 @@
 
 > ## What can this program do?
 > - There are several options to choose from (you will see when you'll run it :D). E.g. It can read the code from an already created svg file and convert into the desired viewbox in the desired file.
-> - Currently the program is limited to changing `width`, `x`, `cx`, `rx`, `height`, `y`, `cy`, `ry`, `points`, `d`, `r`, `stroke-width`, therefore you could still need to change some parameters by yourself, for instance `transform`. But here comes the following option:
+> - Currently the program is limited to changing `width`, `x`, `cx`, `rx`, `height`, `y`, `cy`, `ry`, `points`, `d`, `r`, `stroke-width`, therefore you could still need to change some parameters by yourself, taking `transform` for instance. But here comes the following option:
 > - You can choose an option that will convert your desired number to another viewbox, yet this option ***[only](https://dictionary.cambridge.org/dictionary/english/only)*** works with svgs with the same viewbox's height and width, for example "0 0 16 16", where 16 == 16.
 
 
