@@ -18,4 +18,4 @@
 > - Currently the program is limited to changing `width`, `x`, `cx`, `rx`, `height`, `y`, `cy`, `ry`, `points`, `d`, `r`, `stroke-width`, therefore you could still need to change some parameters by yourself, for instance `transform`. But here comes the following option:
 > - You can choose an option that will convert your desired number to another viewbox, yet this option ***[only][https://dictionary.cambridge.org/dictionary/english/only]*** works with svgs with the same viewbox's height and width, for example "0 0 16 16", where 16 == 16.
 
-# Made with ❤️ by [PYramid8955][https://github.com/PYramid8955]. Hope you'll find it helpful! Don't hesitate to leave a star! 🌟.
+### Made with ❤️ by [PYramid8955][https://github.com/PYramid8955]. Hope you'll find it helpful! Don't hesitate to leave a star! 🌟.
