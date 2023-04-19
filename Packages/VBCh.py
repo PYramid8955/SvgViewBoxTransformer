@@ -13,33 +13,33 @@ class ChangeViewBox:
 	def __init__(self, xml: str, svg: bool) -> None:
 		if svg:
 			self.soup = BeautifulSoup(xml, 'lxml-xml')
-			self.viewbox = self.soup.svg['viewBox']
+			self.viewbox = self.soup.svg['viewBox'].strip()
 			self.tags = self.soup.svg.find_all()
-	def Transform(self, number: float, before: float, after: float) -> float:
-		return after*number/before
-	def PosVar(self, match: float) -> float:
+	def Transform(self, number, before, after) -> float:
+		return float(after)*float(number)/float(before)
+	def PosVar(self, match) -> float:
 		if self.pos == 0:
 			self.pos = 1
-			return self.Transform(match, float(self.xvb), float(self.xnvb))
+			return self.Transform(match, self.xvb, self.xnvb)
 		else:
 			self.pos = 0
-			return self.Transform(match, float(self.yvb), float(self.ynvb))
+			return self.Transform(match, self.yvb, self.ynvb)
 	def cvb(self, nvb: str) -> None:
-		self.soup.svg['viewBox'] = nvb.strip()
 		self.xvb = self.viewbox.split()[2]
 		self.yvb = self.viewbox.split()[3]
-		self.xnvb = nvb.split()[2]
-		self.ynvb = nvb.split()[3]
+		self.xnvb = nvb.strip().split()[0]
+		self.ynvb = nvb.strip().split()[1]
+		self.soup.svg['viewBox'] = f'{self.Transform(self.viewbox.split()[0], self.xvb, self.xnvb)} {self.Transform(self.viewbox.split()[1], self.yvb, self.ynvb)} {self.xnvb} {self.ynvb}'
 		for tag in self.tags:
 			for i in tag.attrs.keys():
 				if i in self.svgPosVar:
-					tag[i] = sub(r'[-+]?\d*\.\d+|\d+', lambda m: f'{self.PosVar(float(m.group()))}' ,tag[i])
+					tag[i] = sub(r'[-+]?\d*\.\d+|\d+', lambda m: f'{self.PosVar(m.group())}' ,tag[i])
 				elif i in self.svgPosAttrX:
-					tag[i] = str(self.Transform(float(tag[i]), float(self.xvb), float(self.xnvb)))
+					tag[i] = str(self.Transform(tag[i], self.xvb, self.xnvb))
 				elif i in self.svgPosAttrY:
-					tag[i] = str(self.Transform(float(tag[i]), float(self.yvb), float(self.ynvb)))
+					tag[i] = str(self.Transform(tag[i], self.yvb, self.ynvb))
 				elif i in self.svgPosNeutral:
-					tag[i] = str((self.Transform(float(tag[i]), float(self.xvb), float(self.xnvb)) + self.Transform(float(tag[i]), float(self.yvb), float(self.ynvb)))/2)
+					tag[i] = str((self.Transform(tag[i], self.xvb, self.xnvb) + self.Transform(tag[i], self.yvb, self.ynvb))/2)
 				
 	def __str__(self) -> str:
 		return str(self.soup)

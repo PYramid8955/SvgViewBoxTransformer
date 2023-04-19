@@ -3,8 +3,8 @@ from Packages.VBCh import ChangeViewBox
 if __name__ == "__main__":
 	option = ''
 	while option != 'q':
-		nvb = input('\033[34mPlease enter the desired svg viewbox (e.g. "0 0 16 16" (without quotes)):\033[0m ').replace('"', '').strip()
-		option = input('Do you want do transform... \n0. A file? \033[32m(strongly recommended)\033[0m \n1. A number (not recommended, because it will work only if your svg\'s max_x == max_y (e.g. "16 16", NOT "16 32", in this case use the option 0.))\n\n\033[34mYour choice (0 or 1, q to quit):\033[0m ').strip().lower()
+		nvb = input('\033[34mPlease enter the desired height and width of your svg viewbox (last two numbers) (e.g. "16 16" (without quotes)):\033[0m ').replace('"', '').strip()
+		option = input('Do you want do transform... \n0. An SVG? \033[32m(strongly recommended)\033[0m \n1. A number (not recommended, because it will work only if your svg\'s max_x == max_y (e.g. "16 16", NOT "16 32", in this case use the option 0.))\n\n\033[34mYour choice (0 or 1, q to quit):\033[0m ').strip().lower()
 		if option == "0":
 			op = ''
 			while not op in ['0', '1']:
@@ -26,15 +26,15 @@ if __name__ == "__main__":
 						print('\033[32mDone!\033[0m\n')
 				else: print('\n\n\033[31mPlease, select one of the options (1 or 2)!\033[0m\n')
 		elif option == "1":
-			vb = input('\033[33mEnter the old viewbox\'s size (e.g. "0 0 16 16" -> "16"):\033[0m ').replace('"', '').strip()
+			vb = input('\033[33mEnter the old viewbox\'s size (e.g. "16 16" -> "16"):\033[0m ').replace('"', '').strip()
 			op = input('\033[33mEnter Infinite Mode? (you could still press q at any time to quit) [Y/N]:\033[0m ').strip().lower()
 			tr = ChangeViewBox('', False)
 			if op == 'y':
 				nr = input('Your number (or q): ').lower().strip()
 				while nr != 'q':
-					print(tr.Transform(float(nr), float(vb), float(nvb.split()[3])))
+					print(tr.Transform(nr, vb, nvb.split()[1]))
 					nr = input('Your number (or q): ').lower().strip()
-			elif op == 'n': print(tr.Transform(float(input('Your number: ').strip()), float(vb), float(nvb.split()[3])))
+			elif op == 'n': print(tr.Transform(input('Your number: ').strip(), vb, nvb.split()[1]))
 			else: print("\nError: Entered wrong option.\n")
 					
 		elif option != 'q': print('\n\n\033[31mPlease, select one of the options (1 or 2)!\033[0m\n')
