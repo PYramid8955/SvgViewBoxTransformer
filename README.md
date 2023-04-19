@@ -14,9 +14,9 @@
 <span color="red">* Make sure you downloaded both: ***ChangeViewBox.py*** and the ***Packages*** [directory](https://en.wikipedia.org/wiki/Directory_(computing)).</span>
 
 > ## What can this program do?
-> - There are several options to choose from (you will see when you'll run it :D). E.g. It can read the code from an already created svg file and convert into the desired viewbox in the desired file.
+> - There are several options to choose from (you will see when you'll run it :D). E.g. It can read the code from an already created svg file and convert into the desired viewbox in the desired file. And it (should) work with any viewbox, for example **"0 0 16 32"** (observed bugs with h/H and v/V in path, so If you want it to work properly with max_x != max_y, please replace them with l/L).
 > - Currently the program is limited to changing `width`, `x`, `cx`, `rx`, `height`, `y`, `cy`, `ry`, `points`, `d`, `r`, `stroke-width`, therefore you could still need to change some parameters by yourself, taking `transform` for instance. But here comes the following option:
-> - You can choose an option that will convert your desired number to another viewbox, yet this option ***[only](https://dictionary.cambridge.org/dictionary/english/only)*** works with svgs with the same viewbox's height and width, for example "0 0 16 16", where 16 == 16.
+> - You can choose an option that will convert your desired number to another viewbox, yet this option, unlike the precedent one, ***[only](https://dictionary.cambridge.org/dictionary/english/only)*** works with svgs with the same viewbox's height and width, for example "0 0 16 16", where 16 == 16.
 
 
 
