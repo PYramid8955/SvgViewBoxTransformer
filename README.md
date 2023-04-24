@@ -11,6 +11,8 @@
 
 * After you have installed all the dependencies and downloaded the [source code](https://github.com/PYramid8955/SvgViewBoxTransformer) you can run the program by typing in the terminal (that's opened in the directory you downloaded the source code) `python3 ChangeViewBox.py` and pressing [Enter](https://en.wikipedia.org/wiki/Enter_key).
 
+* if there is any bug with lxml, please try running `pip install lxml`.
+
 <span color="red">* Make sure you downloaded both: ***ChangeViewBox.py*** and the ***Packages*** [directory](https://en.wikipedia.org/wiki/Directory_(computing)).</span>
 
 > ## What can this program do?
