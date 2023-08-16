@@ -8,17 +8,17 @@ if __name__ == "__main__":
 		if option == "0":
 			op = ''
 			while not op in ['0', '1']:
-				op = input('Do you want to...\n0. Paste your svg text here \033[31m(one line)\033[0m\n1. Load it from your svg file \033[32m(recommended)\033[0m\n\n\033[34mYour choice (1 or 2):\033[0m ').strip()
+				op = input('Do you want to...\n0. Paste your svg text here \033[31m(one line)\033[0m\n1. Load it from your svg file \033[32m(recommended)\033[0m\n\n\033[34mYour choice (0 or 1):\033[0m ').strip()
 				if op == '0': xml = input('\nPaste your svg here \033[31m(one line)\033[0m\n:\n\n')
 				elif op == '1':
 					with open(input('\033[33mThe path to the ".svg" file to be transformed:\033[0m '), "r") as f:
 						xml = f.read()
-				else: print('\n\n\033[31mPlease, select one of the options (1 or 2)!\033[0m\n')
+				else: print('\n\n\033[31mPlease, select one of the options (0 or 1)!\033[0m\n')
 			cvb = ChangeViewBox(xml, True)
 			cvb.cvb(nvb)
 			op = ''
 			while not op in ['0', '1']:
-				op = input('Do you want to...\n0. Display the result here\n1. Write it into a file\n\n\033[34mYour choice (1 or 2):\033[0m ').strip()
+				op = input('Do you want to...\n0. Display the result here\n1. Write it into a file\n\n\033[34mYour choice (0 or 1):\033[0m ').strip()
 				if op == '0': print(str(cvb))
 				elif op == '1':
 					with open(input('\n\033[31mBe Careful! As the following action may overrite your file if it exists.\033[0m\n\033[34mThe name or path of the file where the transformed ".svg" will be written:\033[0m  '), 'w') as f: 
